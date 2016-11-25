@@ -1,0 +1,24 @@
+//算法题目：翻转字符串
+//先把字符串转化成数组，再借助数组的reverse方法翻转数组顺序，最后把数组转化成字符串。
+//你的结果必须得是一个字符串
+
+//可能用到的方法：
+//Global String Object
+//String.split()
+//Array.reverse()
+//Array.join()
+
+//代码：
+function reverseString(str) {
+  
+  var array = str.split("");//把数值按“”分割成数组，并赋值给array。
+  array.reverse();//把array数组翻转。
+  str = array.join("");//把数组按照“”合并成一个，并赋值给str。
+  
+  return str;//返回str
+}
+
+//测试:
+//reverseString("hello") 应该返回 "olleh".
+//reverseString("Howdy") 应该返回 "ydwoH".
+//reverseString("Greetings from Earth") 应该返回 "htraE morf sgniteerG".
