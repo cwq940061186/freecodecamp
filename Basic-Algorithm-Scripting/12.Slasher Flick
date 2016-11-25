@@ -1,0 +1,22 @@
+//算法题目：返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。
+
+//可能用到的方法：
+//Array.slice()
+//Array.splice()
+
+//代码：
+function slasher(arr, howMany) {
+
+  var i = 1;
+  arr.splice(0,howMany);
+  
+  return arr;
+}
+
+//测试:
+//slasher([1, 2, 3], 2) 应该返回 [3].
+//slasher([1, 2, 3], 0) 应该返回 [1, 2, 3].
+//slasher([1, 2, 3], 9) 应该返回 [].
+//slasher([1, 2, 3], 4) 应该返回 [].
+//slasher(["burgers", "fries", "shake"], 1) 应该返回 ["fries", "shake"].
+//slasher([1, 2, "chicken", 3, "potatoes", "cheese", 4], 5) 应该返回 ["cheese", 4].
