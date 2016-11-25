@@ -1,0 +1,35 @@
+//算法题目：确保字符串的每个单词首字母都大写，其余部分小写。像'the'和'of'这样的连接符同理。
+
+//可能用到的方法：
+//String.split()
+//toUpperCase()
+//toLowerCase()
+
+//代码：
+function titleCase(str) {
+  
+  str = str.toLowerCase();
+  var strArray = str.split(" ");
+  
+  var i = 0;
+  var j = 0;
+  while(i < strArray.length){
+    
+    var strSArray = strArray[j].split("");
+    strSArray[0] = strSArray[0].toUpperCase();
+    strSArray = strSArray.join("");
+    strArray[j] = strSArray;
+    
+    j++;
+    i++;
+  }
+  
+  str = strArray.join(" ");
+  
+  return str;
+}
+
+//测试:
+//titleCase("I'm a little tea pot") 应该返回 "I'm A Little Tea Pot".
+//titleCase("sHoRt AnD sToUt") 应该返回 "Short And Stout".
+//titleCase("HERE IS MY HANDLE HERE IS MY SPOUT") 应该返回 "Here Is My Handle Here Is My Spout".
