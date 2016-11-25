@@ -1,0 +1,13 @@
+function reverseString(str) {
+  
+  var array = str.split("");//把数值按“”分割成数组，并赋值给array。
+  array.reverse();//把array数组翻转。
+  str = array.join("");//把数组按照“”合并成一个，并赋值给str。
+  
+  return str;//返回str
+}
+
+//测试:
+//reverseString("hello") 应该返回 "olleh".
+//reverseString("Howdy") 应该返回 "ydwoH".
+//reverseString("Greetings from Earth") 应该返回 "htraE morf sgniteerG".
