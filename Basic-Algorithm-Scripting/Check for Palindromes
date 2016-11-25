@@ -1,33 +1,35 @@
 //算法题目：判断一个给定的字符串（忽略标点符号、大小写和空格）是否palindrome（回文：正着读和反着读一模一样），是则返回true，反之返回false。
-
-//注意你需要去掉字符串多余的标点符号和空格，然后把字符串转化成小写来验证此字符串是否为回文。
-
-函数参数的值可以为"racecar"，"RaceCar"和"race CAR"。
-
-当你完成不了挑战的时候，记得开大招'Read-Search-Ask'。
+//思路：注意去掉字符串多余的标点符号和空格，然后把字符串转化成小写来验证此字符串是否为回文。
 
 //可能用到的方法：
 //String.replace()
 //String.toLowerCase()
 
-
-//Arithmetic Operators
-
 //代码：
-function factorialize(num) {
-  var sum = 1;
-  var count = 1;
+function palindrome(str) {
+
+  str = str.toLowerCase();//全部转为小写
+  str = str.replace(/[^a-z0-9]/g,"");//正则表达式：筛选出出a-z，0-9的字符，并用“”替换掉
   
-  while(count < num){
-    count++;
-    sum = count*sum;
+  var strPal = str.split("");//按“”分割成字符并赋值给strPal。
+  strPal = strPal.reverse();
+  strPal = strPal.join("");
+  
+  if(str == strPal){//判断并返回正确与否
+    return true;
+  }else{
+    return false;
   }
-  
-  return sum;
 }
 
 //测试:
-//factorialize(0) 应该返回 1.
-//factorialize(5) 应该返回 120.
-//factorialize(10) 应该返回 3628800.
-//factorialize(20) 应该返回 2432902008176640000.
+//palindrome("eye") 应该返回 true.
+//palindrome("race car") 应该返回 true.
+//palindrome("not a palindrome") 应该返回 false.
+//palindrome("A man, a plan, a canal. Panama") 应该返回 true.
+//palindrome("never odd or even") 应该返回 true.
+//palindrome("nope") 应该返回 false.
+//palindrome("almostomla") 应该返回 false.
+//palindrome("My age is 0, 0 si ega ym.") 应该返回 true.
+//palindrome("1 eye for of 1 eye.") 应该返回 false.
+//palindrome("0_0 (: /-\ :) 0-0") 应该返回 true.
