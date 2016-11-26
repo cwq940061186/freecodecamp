@@ -8,18 +8,8 @@
 //代码：
 function palindrome(str) {
 
-  str = str.toLowerCase();//全部转为小写
-  str = str.replace(/[^a-z0-9]/g,"");//正则表达式：筛选出出a-z，0-9的字符，并用“”替换掉
-  
-  var strPal = str.split("");//按“”分割成字符并赋值给strPal。
-  strPal = strPal.reverse();
-  strPal = strPal.join("");
-  
-  if(str == strPal){//判断并返回正确与否
-    return true;
-  }else{
-    return false;
-  }
+  str = str.toLowerCase().replace(/[^a-z0-9]/g,"");
+  return str === str.split("").reverse().join("");
 }
 
 //测试:
