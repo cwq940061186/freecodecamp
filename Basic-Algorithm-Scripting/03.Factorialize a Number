@@ -6,15 +6,11 @@
 
 //代码：
 function factorialize(num) {
-  var sum = 1;
-  var count = 1;
-  
-  while(count < num){
-    count++;
-    sum = count*sum;
+  if(num === 0){
+    return 1; 
   }
   
-  return sum;
+  return num * factorialize(num-1);
 }
 
 //测试:
