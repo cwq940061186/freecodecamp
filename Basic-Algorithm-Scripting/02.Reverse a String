@@ -10,11 +10,9 @@
 //代码：
 function reverseString(str) {
   
-  var array = str.split("");//把数值按“”分割成数组，并赋值给array。
-  array.reverse();//把array数组翻转。
-  str = array.join("");//把数组按照“”合并成一个，并赋值给str。
+  return str.split("").reverse().join("");
+  //把数值按“”分割成数组，并赋值给array。把array数组翻转。把数组按照“”合并成一个，并赋值给str。
   
-  return str;//返回str
 }
 
 //测试:
