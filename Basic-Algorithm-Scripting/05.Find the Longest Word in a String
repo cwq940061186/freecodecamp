@@ -6,25 +6,18 @@
 //代码：
 function findLongestWord(str) {
   
-  var strArray = str.split(" ");
-  var strLen = strArray[0].length;
-  str = strArray[0];
-  var i = 0;
+  var words = str.split(' ');
+  var longest = 0;
   
-  while(i < strArray.length){
-    if(strLen <= strArray[i+1].length){
-      strLen = strArray[i+1].length;
-      str = strArray[i+1];
-    }
-    i++;
-    
-    if(i > 2){
-      if(i == (strArray.length-1)){
-        break;
+  words.forEach(
+    function(word) {
+      if (longest < word.length) {
+        longest = word.length;
       }
     }
-  }
-  return str.length;
+  );
+  
+  return longest;
 }
 
 //测试:
