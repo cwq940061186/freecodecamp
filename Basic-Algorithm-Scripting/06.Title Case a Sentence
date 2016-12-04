@@ -7,22 +7,7 @@
 
 //代码：
 function titleCase(str) {
-  
-  str = str.toLowerCase().split(" ");
-  
-  var i = 0;
-  var j = 0;
-  while(i < str.length){
-    
-    var strArray = str[j].split("");
-    strArray[0] = strArray[0].toUpperCase();
-    str[j] = strArray.join("");
-    
-    j++;
-    i++;
-  }
-  
-  return str.join(" ");
+  return str.split(' ').map(function(word) {return word.charAt(0).toUpperCase().concat(word.slice(1).toLowerCase());}).join(' ');
 }
 
 //测试:
