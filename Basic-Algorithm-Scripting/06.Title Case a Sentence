@@ -8,25 +8,21 @@
 //代码：
 function titleCase(str) {
   
-  str = str.toLowerCase();
-  var strArray = str.split(" ");
+  str = str.toLowerCase().split(" ");
   
   var i = 0;
   var j = 0;
-  while(i < strArray.length){
+  while(i < str.length){
     
-    var strSArray = strArray[j].split("");
-    strSArray[0] = strSArray[0].toUpperCase();
-    strSArray = strSArray.join("");
-    strArray[j] = strSArray;
+    var strArray = str[j].split("");
+    strArray[0] = strArray[0].toUpperCase();
+    str[j] = strArray.join("");
     
     j++;
     i++;
   }
   
-  str = strArray.join(" ");
-  
-  return str;
+  return str.join(" ");
 }
 
 //测试:
