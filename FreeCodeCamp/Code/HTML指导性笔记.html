@@ -1,0 +1,189 @@
+﻿<!DOCTYPE HTML><!-- 只有完全明白页面中使用的确切HTML版本，浏览器才能完全正确地显示出HTML页面，这就是<!DOCTYPE>的用处 每个HTML版本都有不一样的声明，而这个是HTML5的，声明这个页面是HTML5的页面，在页面可以按F12查询-->
+<html><!--大框架-->
+	<head><!--网页的头部，例如显示在网页卡片头处的名字。-->
+		<meta charset="UTF-8">编码格式。UTF-8是最常用的,这里的是HTML5的写法，如果是其他的是有另外一种写法。 
+		<title>网页名字</title>
+		<style>/*2.6:这里指的是设置一个单独的样式*/
+			span{
+				font-size:20px;/*设置文字字号*/
+				color:red;/*设置文字颜色，除了用英文，还能用数值例如#000000*（注意：如果每两位数字是一样的，么例如#336699，就可以缩写为#369），还有color:rgb(133,45,200);/
+				font-weight:bold;/*设置字体加粗*/
+				font-style:italic;/*设置字体斜体*/
+				text-decoration:underline;/*加下划线*/
+				text-decoration:line-through;/*加删除线*/
+				text-indent:2em;/*首行缩进两个空格*/
+				line-height:2em;/*行间距（行高）设置为2倍*/
+
+				letter-spacing:2px;/*设置每个字母之间的距离*/
+				word-spacing:10px;/*设置每个单词之间的距离*/
+
+				text-align:center;/*设置居中，还有left左和right右*/
+
+				width:20px;/*在默认情况下宽度不起作用*/
+				height:20px;/*在默认情况下高度不起作用*/
+				background:write;/*背景*/
+
+
+				font-family:"Microsoft Yahei";/*修改字体为微软雅黑（注意这里的字体能不能成功显示取决于观看者的电脑有没有这款字体，写微软雅黑也行，只是英文兼容性更好）*/
+
+			}
+
+			.headpicture{
+				border-color: green;
+				border-width: 10px;
+				border-style: solid;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body><!--网页的身体，展示网页真正的内容-->
+		<div id="Class"><!--网页的各种模块，非常实用，用于模块化开发，里面的ID就是给div命名-->
+			<h1>标题标签，用于展示标题，H1-H6，H6最小。</h1>
+			<p>段落标签，用于承载大段文字，会开启新的一行，也可以给里面的内容添加各种效果。
+
+				例如：
+				<strong>加粗</strong>
+				<em>斜杠</em>
+				这些都是临时用一下，也只能使用一种效果。
+
+
+				来点空&nbsp;&nbsp;格
+				这是一个横线<hr/>
+				这是一个回车<br/>
+				这三个都有点类似，都是不需要前后都有，即加即用。
+
+
+				<span>2.6:还有一种就是用style设置单独样式的，例如这一句，上面style指定的是span，所以被span覆盖的文本将会被设置效果</span>
+				<q>2.7:短文本引用，会自动加双引号</q>
+				<blockquote>2.8:长文本引用，会自动缩进，但不会有双引号</blockquote>
+				<a href="这里填的是网站" title="这里填写的是：鼠标移动到上面的提示" target="_blank" >如何给一个文字添加点击链接,加了【target="_blank"】这面这个可以让链接新建一个页面</a>
+				<img src="图片地址" alt="下载失败时的替换文本" title = "提示文本">
+
+			</p>
+		</div>
+		<div>
+			<img class="headpicture" src="/images/relaxing-cat.jpg">
+
+		</div>
+
+		<div id="List">
+			<h1>如果你想添加一些列表，就要用到ul，ol和li了：</h1>
+			<p>
+				<ul>
+					<li>先用ul</li>
+					<li>然后是li</li>
+					<li>注意这个是无顺序的</li>
+					<li>效果是每一项前面有个圆点</li>
+				</ul>
+
+				<ol>
+					<li>先用ol</li>
+					<li>然后是li</li>
+					<li>注意这个是有顺序的</li>
+					<li>效果是每一项前面有个数字</li>
+				</ol>
+			</p>
+		</div>
+
+		<div>
+			<h1>一些专用且少用的标签：</h1>
+			<p>
+				<address>地址</address>
+				<code>代码语言</code>
+				<pre>语言代码大段</pre>
+
+			</p>
+		</div>
+
+		<div id="Table">
+			<h1>想添加一些表格，就要用到table了：</h1>
+
+		</div>
+
+		<table summary="这叫摘要"><!--整个表格以<table>标记开始、</table>标记结束。-->
+		<!--摘要的内容是不会在浏览器中显示出来的。它的作用是增加表格的可读性(语义化)，使搜索引擎更好的读懂表格内容，还可以使屏幕阅读器更好的帮助特殊用户读取表格内容。-->
+			<p>创建表格的四个元素：table、tbody、tr、th、td</p>
+			<caption>标题:用以描述表格内容，标题的显示位置：表格上方。</caption>
+			<tbody>…：当表格内容非常多时，表格会下载一点显示一点，但如果加上<tbody>标签后，这个表格就要等表格内容全部下载完才会显示。如右侧代码编辑器中的代码。
+				<tr>表格的一行，所以有几对tr 表格就有几行。
+					<th>表格的头部的一个单元格，表格表头。</th>
+
+				</tr>
+				<tr>
+					<td>表格的一个单元格</td>
+					<td>一行中包含几对<td>...</td>，说明一行中就有几列。</td>
+				</tr>
+						
+					表格中列的个数，取决于一行中数据单元格的个数。
+			</tbody>
+		</table>
+		例子：
+		<table summary="1年1班">
+			<caption>1年级班级人数以及平均成绩</caption>
+			<tbody>
+				<tr>
+					<th>班级</th>
+					<th>学生数</th>
+					<th>平均成绩</th>
+				</tr>
+				<tr>
+					<td>一班</td>
+					<td>30</td>
+					<td>89</td>
+				</tr>
+				<tr>
+					<td>二班</td>
+					<td>35</td>
+					<td>85</td>
+				</tr>
+				<tr>
+					<td>三班</td>
+					<td>32</td>
+					<td>80</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<form method="post" action="save.php">
+			<!-- 表单标签，与用户交互 -->
+			<!-- 所有表单控件（文本框、文本域、按钮、单选框、复选框等）都必须放在<form></form>标签之间（否则用户输入的信息可提交不到服务器上） -->
+			<!-- action ：浏览者输入的数据被传送到的地方,比如一个PHP页面(save.php)。 -->
+			<!-- method ： 数据传送的方式（get/post）。 -->
+			<label for="username">用户名:</label><!-- 一般用作输入框前的文字说明 -->
+			<input type="text" placeholder="就是普通的输入框" required><!-- 加了required就代表这个是必填的选项 -->
+			<input type="text" name="username" id="username" value=""/><br/>
+			<label for="pass">密码:</label>
+			<input type="password" name="pass" id="pass" value=""/><br/><!-- type指得是数据类型，当type="text"时，输入框为文本输入框;当type="password"时, 输入框为密码输入框 -->
+			<input type="submit" value="确定" name="submit"/><!-- 这里的type为确认按钮 -->
+			<input type="reset" value="重置" name="reset"/><!-- 这里的type为重置，可以让输入框里的内容清空掉 -->
+			<button type="submit">Like</button><!-- 一个普通的按钮 -->
+
+			<textarea cols="50" rows="10">
+				<!--在<textarea></textarea>标签之间可以输入默认值。-->
+				cols ：多行输入域的列数。
+				rows ：多行输入域的行数。
+			</textarea>
+
+			<label>性别:</label>
+			<label>男</label>
+			<input type="radio" value="1"  name="gender" type="checkbox" checked><!-- 当 type="radio" 时，控件为单选框 --><!-- 最后面添加了type="checkbox"，表示这为单选--><!-- 后面加checked代表这是默认选项，可以用在其他类型的checkbox中 -->
+			<label>女</label>
+			<input type="radio" value="2"  name="gender"/><!-- 但是记住name必须要是一样的，单选才会生效哦 （name是给控件命名的，以备后台程序 ASP、PHP 使用）-->
+
+			<label>喜欢什么运动:</label>
+			<label>跑步</label>
+			<input type="checkbox" value="1"  name="gender" /><!-- 当 type="checkbox" 时，控件为复选框 -->
+			<label>游泳</label>
+			<input type="checkbox" value="1"  name="gender" /><!-- value：提交数据到服务器的值（后台程序PHP使用） -->
+
+			<label>下拉列表</label>
+			<select multiple="multiple"><!-- multiple="multiple"指让下拉列表多选 -->
+				<option value="看书">看书</option><!-- value：提交数据到服务器的值（后台程序PHP使用） -->
+				<option value="旅游" selected="selected">旅游</option><!-- selected="selected"指默认选项 -->
+				<option value="运动">运动</option>
+				<option value="购物">购物</option>
+			</select>
+
+		</form>  
+	</body>
+</html>

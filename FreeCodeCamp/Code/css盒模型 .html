@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>css盒模型</title>
+	</head>
+	<body>
+		<div>
+			<p>
+				盒模型是CSS布局的基石，它规定了网页元素如何显示以及元素间相互关系。
+				在CSS中，html中的标签元素大体被分为三种不同的类型：块状元素、内联元素(又叫行内元素)和内联块状元素。
+
+				常用的块状元素有：
+				<div>、<p>、<h1>...<h6>、<ol>、<ul>、<dl>、<table>、<address>、<blockquote> 、<form>
+
+				块状元素特点：
+				1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（真霸道，一个块级元素独占一行）
+				2、元素的高度、宽度、行高以及顶和底边距都可设置。
+				3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。
+
+				常用的内联元素有：
+				<a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code>
+
+				内联元素特点：
+				1、和其他元素都在一行上；
+				2、元素的高度、宽度及顶部和底部边距不可设置；
+				3、元素的宽度就是它包含的文字或图片的宽度，不可改变。
+
+				常用的内联块状元素有：
+				<img>、<input>
+
+				内联块状元素：inline-block 元素特点：
+				1、和其他元素都在一行上；
+				2、元素的高度、宽度、行高以及顶和底边距都可设置。
+
+				内联元素可以强制转换为块状元素
+				如下代码就是将内联元素a转换为块状元素
+				a{display:block;}
+				同理块状元素a转换为内联元素：
+				div{display:inline}，
+				当然也可以转换为内联块状元素
+				a{display:inline-block;}
+
+				转换的作用在于某些情况下，需要使用到特定的元素的特征来达到某种效果，例如一般来说内联元素是没办法设置长宽的，但是如果转换为内联块状元素就可以设置长宽了。
+			</p>
+		</div>
+		
+		<div>
+			<p>
+				盒子模型：
+				盒子模型的边框就是围绕着内容及补白的线，这条线你可以设置它的粗细、样式和颜色(边框三个属性)。
+
+				例如下面代码为 div 来设置边框粗细为 2px、样式为实心的、颜色为红色的边框：
+				div{
+					border:2px  solid  red;
+				}<!-- 这为缩写形式 -->
+				也就是
+				div{
+					border-width:2px;<!-- border-width（边框宽度）中的宽度也可以设置为：thin | medium | thick（但不是很常用），最常还是用象素（px）。 -->
+					border-style:solid;<!-- border-style（边框样式）常见样式有：dashed（虚线）| dotted（点线）| solid（实线） -->
+					border-color:red;<!-- 也可以设置16进制的数值例如#000 -->
+				}
+
+				同时边框也允许只设置其中的一边：
+				div{border-bottom:1px solid red;}
+
+
+
+				除了边框高度，还可以设置内容长宽（块状元素有一个特点之一：在不设置宽度的情况下，显示为父容器的100%。）
+				li{
+					border-bottom:1px dotted #ccc;
+					width:200px;height:30px;
+				}
+
+				<ul>
+					<li>别让不会说话害了你</li>
+					<li>二十七八岁就应该有的见识</li>
+					<li>别让不好意思害了你</li>
+				</ul>
+				上面这个就会有效果了，并且按照上面长度和宽度显示；
+
+
+
+
+				盒模型--填充
+				元素内容与边框之间是可以设置距离的，称之为“填充”。填充也可分为上、右、下、左(顺时针)。如下代码：
+
+				div{padding:20px 10px 15px 30px;}
+				顺序一定不要搞混。可以分开写上面代码：
+
+				div{
+					padding-top:20px;
+					padding-right:10px;
+					padding-bottom:15px;
+					padding-left:30px;
+				}
+
+				如果上、右、下、左的填充都为10px;可以这么写
+				div{padding:10px;}
+
+				如果上下填充一样为10px，左右一样为20px，可以这么写：
+				div{padding:10px 20px;}
+
+
+
+				盒模型--边界
+				元素与其它元素之间的距离可以使用边界（margin）来设置。边界也是可分为上、右、下、左。如下代码：
+
+				div{margin:20px 10px 15px 30px;}
+				也可以分开写：
+
+				div{
+					margin-top:20px;
+					margin-right:10px;
+					margin-bottom:15px;
+					margin-left:30px;
+				}
+
+				如果上右下左的边界都为10px;可以这么写：
+				div{margin:10px;}
+
+				如果上下边界一样为10px，左右一样为20px，可以这么写：
+				div{margin:10px 20px;}
+
+				总结一下：padding和margin的区别，padding在边框里，margin在边框外。
+
+			</p>
+		</div>
+	</body>
+</html>

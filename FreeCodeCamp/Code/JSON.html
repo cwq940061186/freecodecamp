@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			这是标准的JSON数据格式，可以嵌套，可以数组，非常实用
+			var ourStorage = {
+				"desk": {
+				"drawer": "stapler"
+				},
+				"cabinet": {
+					"top drawer": { 
+					"folder1": "a file",
+		    		"folder2": "secrets"
+				},
+				"bottom drawer": "soda"
+				}
+			}
+
+			有时检查一个对象属性是否存在是非常有用的，我们可以用.hasOwnProperty(propname)方法来检查对象是否有该属性。如果有返回true，反之返回 false。
+
+
+			访问方法：
+			ourStorage.desk 
+			嵌套：ourStorage.cabinet["top drawer"].folder2;  // "secrets"
+			
+			如果个别的数据没有名字，可以用ourStorage[数字]来访问，从上到下，从0开始算。
+
+			题目：如果你有一个二维数组，可以使用相同的逻辑，先遍历外面的数组，再遍历里面的子数组。下面是一个例子：
+			function multiplyAll(arr) {
+				var product = 1;
+				for(var i = 0; i < arr.length; i++){
+
+					for(var j = 0; j < arr[i].length; j++){
+					product = product * arr[i][j];
+					}
+				}
+				return product;
+			}
+
+			multiplyAll([[1,2],[3,4],[5,6,7]]);
+
+
+			======================================================================================
+
+			Math.random()用来生成一个在0(包括0)到1(不包括1)之间的随机小数，因此Math.random()可能返回0但绝不会返回1。
+			Math.floor() 用来将一串数字向下取整，获得它最近的整数。
+			所以如果两个连在一起用的话，就可以取一个整数随机数了。
+			例如：return Math.floor(Math.random() * 10);
+			这确保了我们获得了一个在0到10之间的整数。
+
+
+			function randomRange(myMin, myMax) {
+
+				return Math.floor(Math.random() * myMax - Math.random() * myMin); // Change this line
+
+			}
+
+
+			--------------------------------------------------------------------
+			正则表达式：
+			// Setup
+			var testString = "Ada Lovelace and Charles Babbage designed the first computer and the software that would have run on it.";
+
+			var expression = /and/gi;
+
+			var andCount = testString.match(expression).length;
+			举例：如果我们想要找到字符串The dog chased the cat中单词 the，我们可以使用下面的正则表达式: /and/gi
+
+			我们可以把这个正则表达式分成几段：
+
+			/ 是这个正则表达式的头部
+
+			and 是我们想要匹配的模式
+
+			/ 是这个正则表达式的尾部
+
+			g 代表着 global(全局)，意味着返回所有的匹配而不仅仅是第一个。
+
+			i 代表着忽略大小写，意思是当我们寻找匹配的字符串的时候忽略掉字母的大小写。
+
+			我们可以在正则表达式中使用特殊选择器来选取特殊类型的值。
+			特殊选择器中的一种就是数字选择器\d，意思是被用来获取一个字符串的数字。
+
+			在JavaScript中, 数字选择器类似于: /\d/g。
+
+			在选择器后面添加一个加号标记(+)，例如：/\d+/g，它允许这个正则表达式匹配一个或更多数字。
+			尾部的g是'global'的简写，意思是允许这个正则表达式 找到所有的匹配而不是仅仅找到第一个匹配。
+
+			我们也可以使用正则表达式选择器 \s 来选择一个字符串中的空白。
+
+			空白字符有 " " (空格符)、\r (回车符)、\n (换行符)、\t (制表符) 和 \f (换页符)。
+
+			空白正则表达式类似于：/\s+/g
+
+			你可以用正则表达式选择器的大写版本 来转化任何匹配。
+
+			举个例子：\s 匹配任何空白字符，\S 匹配任何非空白字符。其他的也可以哦！
+
+
+
+
+
+		</p>
+	</body>
+</html>

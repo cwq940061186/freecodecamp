@@ -1,0 +1,252 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>css布局模型</title>
+</head>
+<body>
+    <p>
+        CSS包含3种基本的布局模型，用英文概括为：Flow、Float 和 Layer。
+
+        在网页中，元素有三种布局模型：
+        1、流动模型（Flow）
+        2、浮动模型 (Float)
+        3、层模型（Layer）
+
+
+        流动模型，流动（Flow）是默认的网页布局模式。也就是说网页在默认状态下的 HTML 网页元素都是根据流动模型来分布网页内容的。
+
+        流动布局模型具有2个比较典型的特征：
+        第一点，块状元素都会在所处的包含元素内自上而下按顺序垂直延伸分布，因为在默认状态下，块状元素的宽度都为100%。实际上，块状元素都会以行的形式占据位置。如右侧代码编辑器中三个块状元素标签(div，h1，p)宽度显示为100%。
+
+        <div id="box2">box2</div><!--块状元素，由于没有设置宽度，宽度默认显示为100%-->
+        <h1>标题</h1><!--块状元素，由于没有设置宽度，宽度默认显示为100%-->
+    <p>文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段文本段。</p><!--块状元素，由于没有设置宽度，宽度默认显示为100%-->
+    <div id="box1">box1</div><!--块状元素，由于设置了width:300px，宽度显示为300px-->
+    第二点，在流动模型下，内联元素都会在所处的包含元素内从左到右水平分布显示。（内联元素可不像块状元素这么霸道独占一行）
+
+
+
+
+
+    浮动模型
+    任何元素在默认情况下是不能浮动的，但可以用 CSS 定义为浮动，如 div、p、table、img 等元素都可以被定义为浮动。如下代码可以实现两个 div 元素左对齐显示。
+    div{
+    float:left;
+    }
+
+
+
+    层布局模型就像是图像软件PhotoShop中非常流行的图层编辑功能一样，每个图层能够精确定位操作。
+    但在网页设计领域，由于网页大小的活动性，层布局没能受到热捧。但是在网页上局部使用层布局还是有其方便之处的。
+
+    如何让html元素在网页中精确定位，就像图像软件PhotoShop中的图层一样可以对每个图层能够精确定位操作。
+    CSS定义了一组定位（positioning）属性来支持层布局模型。
+
+    层模型有三种形式：
+    1、绝对定位(position: absolute)
+    2、相对定位(position: relative)
+    3、固定定位(position: fixed)
+
+    绝对定位需要设置position:absolute(表示绝对定位)，这条语句的作用将元素从文档流中拖出来，
+    然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。
+    如下面代码可以实现div元素相对于浏览器窗口向右移动100px，向下移动50px。
+
+    div{
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:absolute;<!-- 这个就是绝对定位，必须先添加这个才能使用绝对定位 -->
+    left:100px;<!-- 这个就是根据body元素为准，右移100px -->
+    top:50px;
+    }
+    <div id="div1"></div>
+
+
+    相对定位，如果想为元素设置层模型中的相对定位，需要设置position:relative（表示相对定位），
+    它通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。
+    相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，移动的方向和幅度由left、right、top、bottom属性确定，偏移前的位置保留不动。
+
+    如下代码实现相对于以前位置向下移动50px，向右移动100px;
+
+    #div1{
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:relative;<!-- 这个就是相对定位，必须先添加这个才能使用绝对定位 -->
+    left:100px;<!-- 这个就是根据元素自身默认的位置为准，右移100px -->
+    top:50px;
+    }
+    <div id="div1"></div>
+
+
+
+    固定定位，fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。
+    由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，
+    因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。
+    以下代码可以实现相对于浏览器视图向右移动100px，向下移动50px。并且拖动滚动条时位置固定不变。
+
+    #div1{
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:fixed;<!-- 这个就是固定定位，必须先添加这个才能使用绝对定位（注意不管你怎么拖动滚动条以及缩放浏览器窗口大小，都不会改变固定定位的位置。） -->
+    left:100px;<!-- 这个就是根据浏览器自身的窗口大小和位置为准，右移100px -->
+    top:50px;
+    }
+    <p>文本文本文本文文本文本文本文本文本文本文本文本文本文本文本文本。</p>
+
+
+
+    如何设置一个定位是根据另外一个定位而定位的？
+    1、参照定位的元素必须是相对定位元素的前辈元素：
+    <div id="box1">
+        <!--参照定位的元素-->
+        <div id="box2">相对参照元素进行定位</div><!--相对定位元素-->
+    </div>
+    从上面代码可以看出box1是box2的父元素（父元素当然也是前辈元素了）。
+
+    2、参照定位的元素必须加入position:relative;
+    #box1{
+    width:200px;
+    height:200px;
+    position:relative;
+    }
+
+    3、定位元素加入position:absolute，便可以使用top、bottom、left、right来进行偏移定位了。
+    #box2{
+    position:absolute;
+    top:20px;
+    left:30px;
+    }
+
+    这样box2就可以相对于父元素box1定位了（这里注意参照物就可以不是浏览器了，而可以自由设置了）。
+
+
+
+    盒模型时外边距(margin)、内边距(padding)和边框(border)设置上下左右四个方向的边距是按照顺时针方向设置的：上右下左。
+    具体应用在margin和padding的例子如下：
+    margin:10px 15px 12px 14px;/*上设置为10px、右设置为15px、下设置为12px、左设置为14px*/
+
+    通常有下面三种缩写方法:
+
+    1、如果top、right、bottom、left的值相同，如下面代码：
+    margin:10px 10px 10px 10px;
+
+    可缩写为：
+    margin:10px;
+
+    2、如果top和bottom值相同、left和 right的值相同，如下面代码：
+    margin:10px 20px 10px 20px;
+
+    可缩写为：
+    margin:10px 20px;
+
+    3、如果left和right的值相同，如下面代码：
+    margin:10px 20px 30px 20px;
+
+    可缩写为：
+    margin:10px 20px 30px;
+
+    注意：padding、border的缩写方法和margin是一致的。
+
+
+
+    水平居中设置：
+    分两种情况：
+    行内元素
+    块状元素
+    定宽块状元素
+    不定宽块状元素
+
+
+    行内元素：
+    如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。
+    (父元素和子元素：如下面的html代码中，div是“我想要在父容器中水平居中显示”这个文本的父元素。反之这个文本是div的子元素 )
+    如下代码：
+
+    html代码：
+    <body>
+        <div class="txtCenter">我想要在父容器中水平居中显示。</div>
+    </body>
+
+    css代码：
+    <style>
+        .txtCenter {
+            text-align: center;
+        }
+    </style>
+
+    块状元素
+    定宽块状元素(块状元素的宽度width为固定值。)：
+
+    满足定宽和块状两个条件的元素是可以通过设置“左右margin”值为“auto”来实现居中的。
+    我们来看个例子就是设置 div 这个块状元素水平居中：
+
+    css代码：
+    <style>
+        div {
+            border: 1px solid red; /*为了显示居中效果明显为 div 设置了边框*/
+            width: 200px; /*定宽*/ /*注意这个和下面那个必须同时使用，必须先定了宽度才能居中*/
+            margin: 20px auto;
+            /* margin-left 与 margin-right 设置为 auto
+                    也可以写成：margin-left:auto;
+                                margin-right:auto;
+                    （注意：元素的“上下 margin” 是可以随意设置的。）*/
+        }
+    </style>
+
+    html代码：
+    <body>
+        <div>我是定宽块状元素，我要水平居中显示。</div>
+    </body>
+
+    块状元素
+    不定宽块状元素(比如网页上的分页导航，因为分页的数量是不确定的，所以我们不能通过设置宽度来限制它的弹性。(不定宽块状元素：块状元素的宽度width不固定。))
+
+    不定宽度的块状元素有三种方法居中（这三种方法目前使用的都很多）：
+
+    1.加入 table 标签
+    2.设置 display: inline 方法：与第一种类似，显示类型设为 行内元素，进行不定宽元素的属性设置
+    3.设置 position:relative 和 left:50%：利用 相对定位 的方式，将元素向左偏移 50% ，即达到居中的目的
+
+    第一种方法：利用table标签的长度自适应性
+    即不定义其长度也不默认父元素body的长度（table其长度根据其内文本长度决定），因此可以看做一个定宽度块元素，然后再利用定宽度块状居中的margin的方法，使其水平居中。
+
+    第一步：为需要设置的居中的元素外面加入一个 table 标签 ( 包括 <tbody>
+        、
+        <tr>
+            、
+            <td>
+                )。
+                第二步：为这个 table 设置“左右 margin 居中”（这个和定宽块状元素的方法一样）。
+
+                例如：
+
+                css代码：
+
+                <style>
+                    table {
+                        border: 1px solid;
+                        margin: 0 auto;
+                    }
+                </style>
+
+                html代码：
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>我是第一行文本</li>
+                                        <li>我是第二行文本</li>
+                                        <li>我是第三行文本</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+</body>
+</html>

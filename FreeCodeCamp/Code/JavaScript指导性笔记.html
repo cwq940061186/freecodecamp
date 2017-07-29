@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>JavaScript</title>
+        <style>
+            img{
+                border:none;
+            }
+        </style>
+    </head>
+    <body>
+        function convert(celsius) {
+            fahrenheit = celsius * 9;
+            fahrenheit /= 5;
+            fahrenheit += 32;
+            return fahrenheit;
+        }
+        convert(30);
+
+        逻辑IF：
+
+          function myFunction(wasThatTrue) {
+              if (wasThatTrue){
+              return "That was true";
+          }
+          return "That was false";
+          }
+
+          myFunction(true);
+
+          if只有true和false两种布尔类型的结果，当然也可以用于比较结果，例如3 == 3，
+          注意：3==3是对的，3=="3"也是对的。但如果是3===3，这个是对的， 3==="3"，这个就是错的，这个叫全等符号，
+          还有一种是!=，意思是不相等，1!=2是对的。1!="1"就是错的。同样也会有!==，1!="1"是对的。
+          还有>，>=，<，<=。
+
+          也可以把两个条件用&&连接起来，这样当两个条件同时满足了才能输出true
+          if (num > 5 && num < 10) {<!-- 这里拆开写也可以，也就是两个if嵌套 -->
+              return "Yes";
+          }
+          return "No";
+
+          也可以用||来连接起来，当两个条件中任意一个满足即为true
+
+          在这里也可以使用if/else以及else if 
+
+        队列（queue）是一个抽象的数据结构，队列中的条目都是有秩序的。新的条目会被加到 队列 的末尾，旧的条目会从 队列 的头部被移出。
+          function queue(arr, item) {
+              return arr.push(item).shift();
+          }
+          var testArr = [1,2,3,4,5];
+
+        switch在21点算牌器里面有详细的说明
+
+        ---------------------------------------------------------------------------------
+        在js里面创建对象，在里面可以添加他的属性，例如
+        var dog = {
+          "leg": "four",
+          "head": "one",
+          "mouse": "one1",
+          "the friend":"mimi"
+        };
+
+        如果要访问他们的话，有两种办法：
+        var catLeg = dog.leg;
+        这里相当于把leg属性的内容赋值到catLeg
+
+        当然如果有一些属性名称中间有个空格，例如上面的"the drink"，那就不可以用“.”来调用，要用以下
+        var catLeg = dog["the friend"]
+        用一个中括号来调用。提示：属性名称中如果有空格，必须把属性名称用单引号或双引号包裹起来。
+        
+        如果你需要修改其中属性的内容
+        dog.leg = "4";
+        dog["leg"] = "4";
+
+        如果你需要增加其中属性的内容
+        dog.name = "lucky";
+        dog["name"] = "lucky";
+
+        如果你需要删除其中属性的内容
+        delete dog.name;
+        
+        ----------------------------------------------------------------------------
+        lookup存储键值对：
+        function phoneticLookup(val) {
+          var result = "";
+          var Lookup = {
+            alpha:"Adams",
+            bravo:"Boston",
+            charlie:"Chicago",
+            delta:"Denver",
+            echo:"Easy",
+            foxtrot:"Frank"
+          };
+          result = Lookup[val];
+          return result;
+        }
+        phoneticLookup("charlie");
+
+        ----------------------------------------------------------------------------
+        数组方法(Array)：
+          .pop() 函数用来“抛出”一个数组末尾的值。我们可以把这个“抛出”的值赋给一个变量存储起来。数组中任何类型的条目（数值，字符串，甚至是数组）可以被“抛出来” 。
+          .push() 将数据追加到一个数组的末尾，即便是一个或多个参数都可以。效果是把它“推”入到数组的末尾。
+          
+          .shift() 函数用来“抛出”一个数组开头的值。
+          .unshift() 将数据追加到一个数组的头部。
+
+          .toUpperCase() 使字符串变大写
+          .toLowerCase() 使字符串变小写
+
+          .reverse() 方法来翻转数组。
+
+          .sort() 可以很容易的按字母顺序或数字顺序对数组中的元素进行排序。与我们之前用的数组方法仅仅返回一个新数组不同， sort 方法将改变原数组，返回被排序后的数组。
+            sort可以把比较函数作为参数传入。比较函数有返回值，当 a 小于 b，返回一个负数；当 a 大于 b ，返回一个正数；相等时返回0。
+            如果没有传入比较函数，它将把值全部转成字符串，并按照字母顺序进行排序。
+
+            下面的例子将展示 sort 的使用，传入的比较函数把元素按照从小到大的顺序进行排列：
+
+              var array = [1, 12, 21, 2];
+              array.sort(function(a, b) {
+                return a - b;
+              });
+
+          .slice(beginSlice[, endSlice]) 方法提取字符串中的一部分，并返回这个新的字符串。
+            beginSlice
+              从该索引（以 0 为基数）处开始提取原字符串中的字符。如果值为负数，会被当做 sourceLength + beginSlice 看待，这里的sourceLength 是字符串的长度 (例如， 如果beginSlice 是 -3 则看作是: sourceLength - 3)
+            endSlice
+              可选。在该索引（以 0 为基数）处结束提取字符串。如果省略该参数，slice会一直提取到字符串末尾。如果该参数为负数，则被看作是 sourceLength + endSlice，这里的 sourceLength 就是字符串的长度(例如，如果 endSlice 是 -3，则是, sourceLength - 3)。
+
+          
+
+          .concat() 可以用来把两个数组的内容合并到一个数组中。传入的参数应该是一个数组。参数中的数组会拼接在原数组的后面，并作为一个新数组返回。
+            下面是一个拼接数组的例子，用concat 把 otherArray 拼接在 oldArray 的后面：
+
+            newArray = oldArray.concat(otherArray);  //使用 .concat() 将 concatMe 拼接到 oldArray 后面，并且赋值给 newArray。
+            var oldArray = [1,2,3];
+            var newArray = [];
+
+            var concatMe = [4,5,6];
+            newArray = oldArray.concat(concatMe);
+
+          .split() 方法按指定分隔符将字符串分割为数组。给 split 方法传递一个参数，这个参数将会作为一个分隔符。
+
+            下面的例子展示了 split 方法的使用，按照 “ ”，这个是空格进行分割：
+            var string = "Split me into an array";
+            var array = [];
+            array = string.split(" ");
+
+          .join 方法来把数组转换成字符串，里面的每一个元素可以用你指定的连接符来连接起来，这个连接符就是你要传入的参数。
+            下面展示了使用 join 来将数组中的每一项放入字符串，并用 and 进行连接：
+            var veggies = ["Celery", "Radish", "Carrot", "Potato"];
+            var salad = veggies.join(" and ");//如果把and改为空格，就可以把数组连接成一句话。
+            运行结果："Celery and Radish and Carrot and Potato" 
+
+          
+
+          .charAt(index) 方法返回字符串中指定位置的字符。
+            字符串中的字符从左向右索引，第一个字符的索引值为 0，最后一个字符（假设该字符位于字符串 stringName 中）的索引值为 stringName.length - 1。 如果指定的 index 值超出了该范围，则返回一个空字符串。
+            var anyString = "Brave new world";
+              console.log("The character at index 0   is '" + anyString.charAt(0)   + "'");
+            The character at index 0 is 'B'
+
+          .substr(start[, length]) 方法返回字符串中从指定位置开始到指定长度的子字符串。
+            start 开始提取字符的位置。如果为负值，则被看作 strLength + start，其中 strLength 为字符串的长度（例如，如果 start 为 -3，则被看作 strLength-3）。
+            length 可选。提取的字符数。
+            描述EDIT
+            start 是一个字符的索引。首字符的索引为 0，最后一个字符的索引为 字符串的长度减去1。substr 从 start 位置开始提取字符，提取 length 个字符（或直到字符串的末尾）。
+            如果 start 为正值，且大于或等于字符串的长度，则 substr 返回一个空字符串。
+            如果 start 为负值，则 substr 把它作为从字符串末尾开始的一个字符索引。如果 start 为负值且 abs(start) 大于字符串的长度，则 substr 使用 0 作为开始提取的索引。注意负的 start 参数不被 Microsoft JScript 所支持。
+            如果 length 为 0 或负值，则 substr 返回一个空字符串。如果忽略 length，则 substr 提取字符，直到字符串末尾。
+
+          .indexOf(searchElement[, fromIndex = 0])
+            searchElement
+              要查找的元素
+            fromIndex
+              开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，即-1表示从最后一个元素开始查找，-2表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，仍然从前向后查询数组。如果抵消后的索引值仍小于0，则整个数组都将会被查询。其默认值为0.
+            返回值:首个被找到的元素在数组中的索引位置; 若没有找到则返回 -1
+
+          .splice(start, deleteCount[, item1[, item2[, ...]]]) 方法用新元素替换旧元素，以此修改数组的内容。
+            start​:从数组的哪一位开始修改内容。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位。
+            deleteCount:整数，表示要移除的数组元素的个数。如果 deleteCount 是 0，则不移除元素。这种情况下，至少应添加一个新元素。如果 deleteCount 大于start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。
+            itemN:要添加进数组的元素。如果不指定，则 splice() 只删除数组元素。
+
+          .map() 可以迭代数组中的每一个元素，并根据回调函数来处理每一个元素，最后返回一个新数组。注意，这个方法不会改变原始数组。例子：
+            var timesFour = oldArray.map(function(val){  //在我们的例子中，回调函数只有一个参数，即数组中元素的值 (val 参数) ，但其实，你的回调函数也可以支持多个参数，譬如：元素的索引index、原始数组arr。
+              return val * 4;//使用 map 方法来为 oldArray 中的每一项增加3，并且在 newArray 中保存它们。 oldArray 不应该被改变。
+            });
+
+          .reduce() 用来迭代一个数组，并且把它累积到一个值中。使用 reduce 方法时，你要传入一个回调函数，这个回调函数的参数是一个 累加器 （比如例子中的 previousVal) 和当前值 (currentVal）。
+            reduce 方法有一个可选的第二参数，它可以被用来设置累加器的初始值。如果没有在这定义初始值，那么初始值将变成数组中的第一项，而 currentVal 将从数组的第二项开始。
+            下面的例子使用了 reduce 来让数组中的所有值相减：
+
+            var singleVal = array.reduce(function(previousVal, currentVal) {
+              return previousVal - currentVal;
+            }, 0);
+
+            使用 reduce 方法来让 array 中的所有值相加，并且把结果赋值给 singleVal 。
+
+          .filter() 用来迭代一个数组，并且按给出的条件过滤出符合的元素。
+            传入一个回调函数，这个回调函数会携带一个参数，参数为当前迭代的项（我们叫它 val ）。
+            回调函数返回 true 的项会保留在数组中，返回 false 的项会被过滤出数组。
+
+              下面的代码示例展示了使用 filter 来移除数组中值等于5的项：注意： 我们忽略了第二参数和第三参数，因为例子中我们只需要第一参数就够了。
+              array = array.filter(function(val) {
+                return val !== 5;
+              });
+              使用 filter 来创建一个新数组，新数组的值是 oldArray 中值小于6的元素。不许改变原数组 oldArray 。
+
+          .forEach(callback[, thisArg]) 方法对数组的每个元素执行一次提供的函数(回调函数)。
+            参数:
+            callback
+            函数为每个元素执行，接收三个参数：
+              currentValue(当前值)
+              数组中正在处理的当前元素。
+              index(索引)
+              数组中正在处理的当前元素的索引。
+              array
+              正在应用forEach()数组。
+            thisArg(可选)
+            可选参数。当执行回调 函数时用作this的值(参考对象)。
+
+            function logArrayElements(element, index, array) {
+                console.log("a[" + index + "] = " + element);
+            }
+            [2, 5, 9].forEach(logArrayElements);
+            // logs:
+            // a[0] = 2
+            // a[1] = 5
+            // a[2] = 9
+
+
+
+        ------------------------------------------------------------------------
+        DOM
+        查找dom元素和对象,读取和改变HTML内容
+
+        改变HTML输出流
+        document.write();
+        例如可以给代码里面改写为一段p标签+内容
+        那就可以写document.writ("<p>11</p>")
+
+        读取HTML元素：
+
+        getElementById()
+        返回带有指定ID的元素
+
+        getElementByTagName()
+        返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。  
+        
+        getElementById()
+        返回包含带有指定类目的所有元素的节点列表
+
+        getElementById().innerHTML
+        获取指定id的元素的html内容
+
+        getElementById().outerHTML
+        读取目标的内容时包含它自身。
+
+        getElementById().innerText
+        获取指定id的元素的html文本内容
+
+        getElementById().outerText
+        读取目标的内容时包含它自身。
+
+        getElementById(id).attribute
+        获取HTML元素属性（attribute = id,className等）
+        如果想给它赋一个新的值，后面写=new value就可以了，和上面的是一样的
+
+        getElementById(id).getAttribute(name)
+        同样是获取HTML元素属性（id,className等）
+        这一种方法，赋值是另外一种格式
+            getElementById(id).setAttribute(name,value)
+
+        改变HTML内容
+
+        getElementById().innerHTML=new HTML
+        getElementById().outerHTML=new HTML
+
+        getElementById().innerText=new text
+        getElementById().outerText=new text
+        
+        改变HTML样式
+        getElementById(id).style.property = new style;
+        getElementById(id).className = class name;
+        例如：<button onclick="document.body.style.backgroundColor='green'">点击切换皮肤绿色</button>
+        
+        移除HTML元素属性
+        getElementById().removeAttribute(name)
+
+        增加、删除和替换节点
+        创建新的HTML元素
+        document.createElement()
+        for example:document.createElement("p");
+
+        document.createTextNode()
+        for example:document.createTextNode()
+ 
+        document.cloneNode()
+        如果后面带参true，这样它就会迭代自己，把目标的子元素也克隆过来
+        不然就只克隆自己本身
+
+        xxx.firstChild;
+        获得该元素下的第一个子元素，当然还会有lastChild，最后一个
+
+        appendChild(newItem)
+        给某元素添加新的元素。
+
+        insertBefore(newItem,existingItem)
+        这个指的是可以把任意元素插入到指定元素下的第一位。
+        例子：xxx.insertBefore(想要加入的元素，xxx.childNodes[0]),指的是指定元素下的那个子元素的前面。childNodes[0]能够指定是哪个子元素
+
+        removeChild()
+
+        ------------------------------------------------------------------------
+        3.1
+        事件流
+          事件冒泡
+          ie的事件流叫事件冒泡，即从最具体的元素，逐级传递到最上级的元素
+
+          事件捕获
+          和上面的相反，目前很多老版本的浏览器不支持捕获，所以通常用冒泡
+
+          <body>
+            <div>
+              <span>点击事件</span>
+            </div>
+          </body>
+
+          冒泡就是点击的时候，是点击到span，再传递到body，所以点击到span，也等于点击到外层，会逐层触发。
+          捕获的话是先点击到body，所以先触发body，再一路往里面的目标触发。所以两者主要是触发顺序不一样。
+          绝大部分浏览器都是默认用事件冒泡来处理过程。
+
+        3.2
+        html事件处理程序
+          事件指的是文档或者浏览器窗口中发生的一些特性的交互瞬间。
+          例如js和html之间的交互就是通过事件实现的，事件使页面的行为（js代码）与页面的外观（html/css代码）之间实现解耦
+          事件就是用户或者浏览器自身执行的某种动作，例如click，load
+          响应某个事件的的函数就叫做事件处理程序
+          事件处理程序的名字以“on”开头，例如onclick，onload等
+
+          某个元素支持的每种事件，都可以使用一个与相应事件处理程序同名的html特性来指定。
+          在html中定义的事件处理程序可以包含要执行的具体动作
+          例如<button onclick="alert('要弹出的内容：111')">点击</button>
+          也可以直接调用方法
+          例如<button onclick="neirong()">点击</button>
+
+        3.3
+        DOM0级事件处理程序：
+          通过js指定事件处理程序的传统方法，将一个函数赋值给一个事件处理程序
+          每个元素都有自己的事件处理程序属性，都是小写，例如onclick
+          将这种属性的值设置为一个函数，就可以指定事件处理程序，例如：
+          <button id="btnDom0">点击</button>
+          
+          <script type="text/javascript">
+            var btnDom0 = document.getElementById('btnDom0');
+            btnDom0.onclick = function(){
+              alert(this.id);
+            }
+          </script>
+          这样的话，就可以实现html和js的解耦了。
+          但是注意一次只能绑定1个事件，如果绑定了多个事件，就会执行最后一个事件
+
+        3.4
+        DOM2级事件处理程序
+          dom0和2，其实指的是浏览器在处理事件的次序，一般来说，越老的浏览器，越不能支持dom2，但越稳定
+          添加事件：addEventListener（事件名，函数，布尔值）
+          移除事件：removeEventListener（事件名，函数，布尔值）
+          布尔值默认为false，一般用它来控制是冒泡还是捕获，默认是冒泡，但注意捕获不是所有浏览器都支持
+          dom2的主要好处是可以绑定多个事件处理程序
+          <button id="myBtn">点击</button>
+          
+          <script type="text/javascript">
+            var myBtn = document.getElementById("myBtn");
+
+            myBtn.addEventListener("click",sayHi,false);
+
+            function sayHi(){
+              alert("hellow!");
+            }
+
+            myBtn.removeEventListener("click",sayHi,false);
+          </script>
+
+        3.5
+        注意！！！：
+        在ie里面，有ie特有的事件处理程序
+        ie实现了与dom类似的两个方法：
+        添加事件：attachEvent(事件名，处理函数)
+        移除事件：detachEvent(事件名，处理函数)
+        注意！！！！：
+        由于ie8及更早的版本只支持事件冒泡，所有attachEvent添加的会添加在冒泡阶段
+
+        ie的attachEvent的用法和dom2相似。
+        但是添加的事件名。一般前面要加on，例如click要变成onclick。
+
+          
+        3.7
+          event，可以查出dom的类型，以及控制捕获和冒泡
+          event.type 可以查出是什么类型的事件，例如click
+          event.target 可以查出是指定的对象是什么类型，其实就相当于this。所以event.target.id == this.id 
+          event.preventDefaclt(); 取消默认行为
+
+          event.stopPropagation(); 阻止事件冒泡。
+
+        3.8
+          在ie中，与访问dom中的event对象不同，要访问ie中的event对象有几种不同的方式没取决于事件处理程序的方式
+          在使用dom0级方法添加时，event对象作为window对象的属性存在。
+          <script type="text/javascript">
+            var myBtn = document.getElementById("myBtn");
+
+            myBtn.onclick = function sayHi(){
+              alert(window.event.type); //"click"
+            }
+          </script>
+          在ie中：
+          event.sreElement，类似dom事件对象的事件目标（event.target）
+          event.type，被触发的类型
+          event.returnValue，取消事件的默认行为，默认为true（event.preventDefaclt();）
+          event.cancelBubble，取消事件冒泡，默认为false，event.stopPropagation().
+
+
+
+        4.1表单元素
+          form
+          input（text，password，radio，checkbox）
+          select下拉
+          textarea文本域
+          button
+
+        
+          
+
+
+          
+
+
+
+    </body>
+</html>
